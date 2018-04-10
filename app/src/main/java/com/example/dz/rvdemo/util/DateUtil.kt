@@ -7,7 +7,7 @@ import java.util.logging.SimpleFormatter
 class DateUtil{
     companion object {
         private var simpleFormatter = SimpleDateFormat("HH-mm-ss", Locale.US)
-        fun getStringFromDate(date:Date): String? {
+        fun getStringFromDate(date:Date): String {
             return simpleFormatter.format(date)
         }
     }

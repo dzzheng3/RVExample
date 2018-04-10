@@ -35,7 +35,7 @@ class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         } else {
             itemMainBinding = DataBindingUtil.inflate<ItemMainBinding>(LayoutInflater.from(parent.context), R.layout.item_main, parent, false)
         }
-        return MainViewHolder(itemMainBinding)
+        return MainViewHolder(itemMainBinding,onClickItemListener)
 
     }
 
@@ -48,4 +48,12 @@ class MainAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             holder.bind(itemList.get(position))
     }
 
+    interface OnClickItemListener {
+        fun onClickItem(item: Item)
+    }
+
+    private var onClickItemListener: OnClickItemListener? = null
+    fun setOnClickItemListener(onClickItemListener: OnClickItemListener) {
+        this.onClickItemListener = onClickItemListener
+    }
 }
